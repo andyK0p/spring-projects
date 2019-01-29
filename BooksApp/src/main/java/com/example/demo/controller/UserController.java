@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import com.mongodb.client.result.DeleteResult;
@@ -25,8 +26,9 @@ public class UserController {
 	UserService userService;
 	
 	
+	//###### USER REST SERVICES #######
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	public ResponseEntity<List<User>> getAll() {
+	public ResponseEntity<List<User>> getAllUsers() {
 		List<User> users = userService.getAll();
 		
 		if(users == null)
@@ -70,7 +72,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user", method = RequestMethod.DELETE)
-    public ResponseEntity<DeleteResult> deleteUserByName(@RequestParam(value="name", defaultValue="World") String name) {
+    public ResponseEntity<DeleteResult> deleteUserByName(@RequestParam(value="name", defaultValue="Anonymous") String name) {
         DeleteResult res = userService.deleteUserByName(name);
                        
         if(res == null) 
@@ -89,7 +91,7 @@ public class UserController {
         	return new ResponseEntity<DeleteResult>(res, HttpStatus.NO_CONTENT);
         
         else 
-        	return new ResponseEntity<DeleteResult>(res, HttpStatus.OK);
-        
+        	return new ResponseEntity<DeleteResult>(res, HttpStatus.OK);   
     }
+	
 }

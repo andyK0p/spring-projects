@@ -11,6 +11,7 @@ public class Book {
 	
 	String title;
 	String author;
+	String year;
 		
 	public Book() {
 		super();
@@ -36,6 +37,12 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	
-	
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}	
 }

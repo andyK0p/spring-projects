@@ -13,7 +13,7 @@ public class User {
 	
 	String name;
 	String address;
-	List<Book> books;
+	List<String> books;
 	
 	public User() {
 		super();
@@ -42,11 +42,15 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public List<Book> getBooks() {
+	public List<String> getBooks() {
 		return books;
 	}
-	public void setBooks(List<Book> books) {
+	public void setBooks(List<String> books) {
 		this.books = books;
 	}
-	
+	public void addBookToUser(String bookId) {
+		//needs a proper exception handling
+		if(bookId != null)
+			books.add(bookId);
+	}
 }
